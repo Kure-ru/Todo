@@ -120,12 +120,14 @@ li {
 /* || task bar  */
 
 .app__bottom{
+max-height: 4.8rem;
 margin: 0 25px;
 color: var(--dark-grayish-blue);
 display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
 padding: 1rem;
+box-shadow: 0px 14px 12px -5px var(--dark-grayish-blue);
 }
 
 
@@ -140,4 +142,16 @@ padding: 1rem;
     padding: 1rem;
 }
 
+.app__bottom__text{
+    color: var(--dark-grayish-blue);
+    text-align: center;
+}
+
+.items__status button {
+    padding: 0 1rem;
+    margin: 0;
+    border: none;
+    color: var(--dark-grayish-blue);
+    font-family: var(--custom-font);
+}
 

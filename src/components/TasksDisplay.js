@@ -17,7 +17,6 @@ const Task = ({ task, setTasks, tasks }) => {
   };
 
   const handleDelete = () => {
-    console.log(task.id)
     const newTasks = tasks.filter((deleted) => deleted !== task)
     setTasks(newTasks)
   }
@@ -34,8 +33,9 @@ const Task = ({ task, setTasks, tasks }) => {
 };
 
 const TasksDisplay = ({ tasks, setTasks }) => {
+  console.log(tasks)
   return (
-    <section class="taskdisplay">
+    <section className="taskdisplay">
       {tasks.map((task) => {
         return (
           <Task key={task.id} task={task} setTasks={setTasks} tasks={tasks} />

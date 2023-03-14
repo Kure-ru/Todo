@@ -3,12 +3,15 @@ import iconMoon from "./assets/icon-moon.svg";
 
 import { TodoInput } from "./components/TodoInput";
 import { TasksDisplay } from "./components/TasksDisplay";
+import { TaskBar } from "./components/TaskBar";
 
 import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [mode, setMode] = useState("all");
 
+  console.log(mode);
   return (
     <>
       <section class="app__header">
@@ -23,19 +26,14 @@ function App() {
 
       <TasksDisplay tasks={tasks} setTasks={setTasks} />
 
-      <section class="app__bottom">
-        <div>{tasks.length} items left</div>
+      <TaskBar
+        tasks={tasks}
+        setTasks={setTasks}
+        mode={mode}
+        setMode={setMode}
+      />
 
-        <ul class="items__status">
-          <li>All</li>
-          <li>Active</li>
-          <li>Complete</li>
-        </ul>
-
-        <div>Clear completed</div>
-      </section>
-
-      <p>Drag and drop to reorder list</p>
+      <p className="app__bottom__text">Drag and drop to reorder list</p>
     </>
   );
 }
