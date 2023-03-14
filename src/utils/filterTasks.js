@@ -1,12 +1,12 @@
-  export function filterTasks(tasks, filter) {
+  export function filterTasks(tasks, mode) {
 
-    return tasks.filter(todo => {
-      if (filter.mode === 'all') {
+    return tasks.filter(task => {
+      if (mode === 'all') {
         return true;
-      } else if (filter.mode === 'active') {
-        return tasks.isActive;
-      } else if (filter.mode === 'completed') {
-        return !tasks.isActive;
+      } else if (mode === 'active') {
+        return task.isActive;
+      } else if (mode === 'completed') {
+        return !task.isActive;
       }
     });
   }

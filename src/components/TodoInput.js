@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { Button } from './Button';
 
 let nextId = 0;
 
@@ -19,11 +18,10 @@ function TodoInput({ tasks, setTasks }) {
 
   return (
     <div class="header__input">
-      {/* <Button/> */}
       <input
         class="input__txt"
         type="text"
-        placeholder="Create a new todo..."
+        placeholder="  Create a new todo..."
         value={input}
         onChange={handleChange}
         onKeyDown={handleKeyDown}

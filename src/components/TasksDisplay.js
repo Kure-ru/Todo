@@ -1,6 +1,10 @@
-import iconCheck from "../assets/icon-check.svg";
+import { useMemo } from "react";
+import { filterTasks } from "../utils/filterTasks";
 
+import iconCheck from "../assets/icon-check.svg";
 import iconCross from "../assets/icon-cross.svg";
+
+
 
 const Task = ({ task, setTasks, tasks }) => {
 
@@ -26,17 +30,18 @@ const Task = ({ task, setTasks, tasks }) => {
       <button onClick={handleClick} className={task.isActive ? "none" : "todo"}>
         <img src={iconCheck} alt="task done" />
       </button>
-      {task.name}
-      <img onClick={handleDelete} src={iconCross} alt="delete task" />
+      <span className="task__text">{task.name}</span>
+      <img className="task__delete" onClick={handleDelete} src={iconCross} alt="delete task" />
     </div>
   );
 };
 
-const TasksDisplay = ({ tasks, setTasks }) => {
-  console.log(tasks)
+const TasksDisplay = ({ tasks, setTasks, mode }) => {
+  const visibleTasks = useMemo(() => filterTasks(tasks, mode), [tasks, mode])  
+
   return (
     <section className="taskdisplay">
-      {tasks.map((task) => {
+      {visibleTasks.map((task) => {
         return (
           <Task key={task.id} task={task} setTasks={setTasks} tasks={tasks} />
         );
