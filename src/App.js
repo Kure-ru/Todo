@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+    <div className="background__image"></div>
       <section class="app__header">
         <div class="header__top">
           <h1 class="top__title">TODO</h1>
