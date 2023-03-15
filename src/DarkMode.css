@@ -43,6 +43,7 @@ body {
 
 h1 {
   color: white;
+  font-size: 2.3rem;
 }
 
 .input__txt {
@@ -72,16 +73,12 @@ li {
   border-radius: 5px;
 }
 
-.app__bottom {
+.app__wrapper{
+  max-width: 600px;
   width: 80%;
-  max-width: 600px;
   margin: 0 auto;
-}
+  margin-top: -40px;
 
-.header__top,
-.header__input {
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 /* ||header */
@@ -106,6 +103,9 @@ li {
   align-items: center;
 }
 
+.header__input{
+  max-width: 582px;
+}
 .top__title {
   letter-spacing: 0.5rem;
 }
@@ -118,9 +118,9 @@ li {
 }
 
 .header__input {
-  width: 80%;
   height: 3rem;
   border-radius: 5px;
+  margin-bottom: 2rem;
 }
 
 .input__txt {
@@ -128,12 +128,6 @@ li {
 }
 
 /* ||task display   */
-
-.taskdisplay {
-  margin: 0 auto;
-  max-width: 630px;
-  width: 80%;
-}
 
 .taskdisplay__task {
   margin: 0 auto;
