@@ -1,6 +1,3 @@
-import { useState } from 'react';
-import { filterTasks } from "../utils/filterTasks";
-
 const TaskBar = ({ tasks, setTasks, mode, setMode }) => {
 
   const handleDeleteCompleted = () => {
@@ -12,14 +9,21 @@ const TaskBar = ({ tasks, setTasks, mode, setMode }) => {
       <div>{tasks.length} items left</div>
 
       <ul class="items__status">
-        <li> <button onClick={() => setMode('all')}>All</button></li>
-        <li> <button onClick={() => setMode('active')}>Active</button></li>
-        <li> <button onClick={() => setMode('completed')}>Complete</button></li>
+        <li> <button onClick={() => setMode('all')}>
+          <span className={mode === 'all' ? "selected" : ""}>All</span>
+          </button></li>
+        <li> <button onClick={() => setMode('active')}>
+          <span　className={mode === 'active' ? "selected" : ""}>Active</span>
+          </button></li>
+        <li> <button onClick={() => setMode('completed')}>
+          <span　className={mode === 'completed' ? "selected" : ""}>Completed</span>
+          </button></li>
       </ul>
 
-      <div onClick={handleDeleteCompleted}>Clear completed</div>
+      <div className="clear__btn" onClick={handleDeleteCompleted}>Clear completed</div>
     </section>
   );
 };
+
 
 export { TaskBar };

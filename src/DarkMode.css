@@ -6,7 +6,8 @@
   --tasks-background: white;
   --gray: hsl(236, 33%, 92%);
   --light-grayish-blue: hsl(233, 11%, 84%);
-  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --shadow-color: hsl(236, 9%, 61%);
+  --crossed-color: hsl(236, 9%, 61%);
   --font-color: hsl(235, 19%, 35%);
 
   /* font */
@@ -25,9 +26,9 @@
   --font-color: white;
   --gray: hsl(234, 39%, 85%);
   --light-grayish-blue-hover: hsl(236, 33%, 92%);
-  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --crossed-color: hsl(234, 11%, 52%);
   --very-dark-grayish-blue: hsl(233, 14%, 35%);
-  --most-dark-grayish-blue: hsl(237, 14%, 26%);
+  --shadow-color: black;
   --url: url("./assets/bg-mobile-dark.jpg");
   --url-desktop: url("./assets/bg-desktop-dark.jpg");
 }
@@ -44,14 +45,15 @@ h1 {
   color: white;
 }
 
-input {
+.input__txt {
   border: none;
   background: var(--tasks-background);
   font-size: 1.2rem;
   width: 100%;
-  color: var(--light-grayish-blue);
+  color: var(--font-color);
   border-radius: 5px;
   height: 3rem;
+  padding-left: 16px;
 }
 
 input:focus {
@@ -70,7 +72,6 @@ li {
   border-radius: 5px;
 }
 
-
 .app__bottom {
   width: 80%;
   max-width: 600px;
@@ -79,7 +80,7 @@ li {
 
 .header__top,
 .header__input {
-  max-width: 630px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -172,20 +173,29 @@ li {
   padding-left: 4rem;
 }
 
+.task__text--crossed {
+  color: var(--crossed-color);
+  text-decoration: line-through;
+}
+
 .task__delete {
   align-self: flex-start;
+}
+
+.task__delete:hover {
+  cursor: pointer;
 }
 
 /* || task bar  */
 
 .app__bottom {
   max-height: 4.8rem;
-  color: var(--dark-grayish-blue);
+  color: var(--crossed-color);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 1rem;
-  /* box-shadow: 0px 14px 12px -5px var(--dark-grayish-blue); */
+  box-shadow: 0px 14px 12px -5px var(--shadow-color);
 }
 
 .items__status {
@@ -213,8 +223,44 @@ li {
   background: var(--tasks-background);
 }
 
-@media (min-width: 376px) {
+items__status span {
+  font-size: 1rem;
+}
 
+button,
+.task__text,
+.clear__btn {
+  cursor: pointer;
+}
+
+.selected {
+  color: var(--bright-blue);
+}
+
+@media (min-width: 376px) {
   .background__image {
-    background: var(--url-desktop);}
+    background: var(--url-desktop);
+  }
+
+  .app__bottom {
+    color: var(--crossed-color);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .items__status {
+    border-top: none;
+    color: var(--very-dark-grayish-blue);
+    list-style: none;
+    order: 0;
+    padding: 1rem;
+    width: auto;
+  }
+
+  .items__status * {
+    font-size: 16px;
+  }
 }

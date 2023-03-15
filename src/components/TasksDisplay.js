@@ -28,12 +28,28 @@ const Task = ({ task, setTasks, tasks }) => {
   return (
     <div class="taskdisplay__task">
       <button onClick={handleClick} className={task.isActive ? "none" : "todo"}>
-        <img src={iconCheck} alt="task done" />
+        {!task.isActive && <img id="check" src={iconCheck} alt="task done"/>}
       </button>
-      <span className="task__text">{task.name}</span>
+      {!task.isActive ? (
+        <del>
+          <span className="task__text task__text--crossed">{task.name}</span>
+        </del>
+      ) : (
+        <span className="task__text">{task.name}</span>
+      )}
       <img className="task__delete" onClick={handleDelete} src={iconCross} alt="delete task" />
     </div>
   );
+
+  // return (
+  //   <div class="taskdisplay__task">
+  //     <button onClick={handleClick} className={task.isActive ? "none" : "todo"}>
+  //       <img id="check" src={iconCheck} alt="task done" />
+  //     </button>
+  //     <span className="task__text">{task.name}</span>
+  //     <img className="task__delete" onClick={handleDelete} src={iconCross} alt="delete task" />
+  //   </div>
+  // );
 };
 
 const TasksDisplay = ({ tasks, setTasks, mode }) => {

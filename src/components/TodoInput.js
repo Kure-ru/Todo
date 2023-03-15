@@ -10,7 +10,8 @@ function TodoInput({ tasks, setTasks }) {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && input !== '') {
+      console.log(input)
       setTasks([...tasks, { id: nextId++, name: input, isActive: true }]);
       setInput("")
     }
@@ -21,7 +22,7 @@ function TodoInput({ tasks, setTasks }) {
       <input
         class="input__txt"
         type="text"
-        placeholder="  Create a new todo..."
+        placeholder="Create a new todo..."
         value={input}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
