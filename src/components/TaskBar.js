@@ -1,29 +1,30 @@
-const TaskBar = ({ tasks, setTasks, mode, setMode }) => {
+import { useContext } from "react";
+import taskContext from "../context/taskContext";
 
-  const handleDeleteCompleted = () => {
-    setTasks((current) => current.filter((task) => task.isActive === true));
-  };
+const TaskBar = () => {
+  const { tasks, setTasks, mode, setMode } = useContext(taskContext)
+  const handleDeleteCompleted = () => setTasks((current) => current.filter((task) => task.isActive === true));
 
+  console.log(mode)
   return (
-    <section class="app__bottom">
+    <div class="app__bottom">
       <div>{tasks.length} items left</div>
 
-      <ul class="items__status">
-        <li> <button onClick={() => setMode('all')}>
-          <span className={mode === 'all' ? "selected" : ""}>All</span>
-          </button></li>
-        <li> <button onClick={() => setMode('active')}>
-          <span　className={mode === 'active' ? "selected" : ""}>Active</span>
-          </button></li>
-        <li> <button onClick={() => setMode('completed')}>
-          <span　className={mode === 'completed' ? "selected" : ""}>Completed</span>
-          </button></li>
-      </ul>
+      <div class="items__status">
+         <p onClick={() => setMode('all')} className={mode === 'all' ? "selected" : ""}>
+          All
+          </p>
+         <p onClick={() => setMode('active')} className={mode === 'active' ? "selected" : ""}>
+          Active
+          </p>
+         <p onClick={() => setMode('completed')} className={mode === 'completed' ? "selected" : ""}>
+         Completed
+          </p>
+      </div>
 
       <div className="clear__btn" onClick={handleDeleteCompleted}>Clear completed</div>
-    </section>
+    </div>
   );
 };
-
 
 export { TaskBar };

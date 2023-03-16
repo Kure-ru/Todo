@@ -1,15 +1,12 @@
-import { useState } from "react";
-
 import { TodoInput } from "./components/TodoInput";
 import { TasksDisplay } from "./components/TasksDisplay";
 import { TaskBar } from "./components/TaskBar";
 import { DarkMode } from "./components/DarkMode";
+import { TodoProvider } from "./context/taskContext";
 
 import "./DarkMode.css";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-  const [mode, setMode] = useState("all");
 
   return (
     <>
@@ -20,18 +17,20 @@ function App() {
           <DarkMode />
         </div>
       </section>
+      <TodoProvider>
       <div className="app__wrapper">
-        <TodoInput tasks={tasks} setTasks={setTasks} />
-
-        <TasksDisplay tasks={tasks} setTasks={setTasks} mode={mode} />
-
+        <TodoInput tasks={TodoProvider.tasks} setTasks={TodoProvider.setTasks} />
+        
+        <TasksDisplay tasks={TodoProvider.tasks} setTasks={TodoProvider.setTasks} mode={TodoProvider.mode} />
+    
         <TaskBar
-          tasks={tasks}
-          setTasks={setTasks}
-          mode={mode}
-          setMode={setMode}
+          tasks={TodoProvider.tasks}
+          setTasks={TodoProvider.setTasks}
+          mode={TodoProvider.mode}
+          setMode={TodoProvider.setMode}
         />
       </div>
+      </TodoProvider>
       <p className="app__bottom__text">Drag and drop to reorder list</p>
     </>
   );

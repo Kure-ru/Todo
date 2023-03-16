@@ -1,9 +1,9 @@
-import { useState } from "react";
-
-let nextId = 0;
+import { useState, useContext } from "react";
+import taskContext from "../context/taskContext";
 
 function TodoInput({ tasks, setTasks }) {
   const [input, setInput] = useState("");
+  const { addTask } = useContext(taskContext)
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -12,7 +12,11 @@ function TodoInput({ tasks, setTasks }) {
   const handleKeyDown = (event) => {
     if (event.key === "Enter" && input !== '') {
       console.log(input)
-      setTasks([...tasks, { id: nextId++, name: input, isActive: true }]);
+      addTask({
+        id: new Date().getTime().toString(),
+        name: input,
+        isActive: true,
+      })
       setInput("")
     }
   };

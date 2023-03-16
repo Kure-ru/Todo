@@ -61,8 +61,12 @@ input:focus {
   outline: none;
 }
 
+ul {
+  padding-left: 0;
+}
+
 li {
-  padding: 8px;
+  list-style: none;
 }
 
 /* || layout */
@@ -73,14 +77,16 @@ li {
   border-radius: 5px;
 }
 
-.app__wrapper{
+.app__wrapper,
+.header__top {
   max-width: 600px;
   width: 80%;
   margin: 0 auto;
-  margin-top: -40px;
-
 }
 
+.app__wrapper {
+  margin-top: -40px;
+}
 /* ||header */
 .background__image {
   background: var(--url);
@@ -103,9 +109,6 @@ li {
   align-items: center;
 }
 
-.header__input{
-  max-width: 582px;
-}
 .top__title {
   letter-spacing: 0.5rem;
 }
@@ -123,8 +126,10 @@ li {
   margin-bottom: 2rem;
 }
 
-.input__txt {
+.input__txt,
+.header__input {
   margin-top: 0.2rem;
+  box-sizing: border-box !important;
 }
 
 /* ||task display   */
@@ -183,43 +188,37 @@ li {
 /* || task bar  */
 
 .app__bottom {
-  max-height: 4.8rem;
   color: var(--crossed-color);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 1rem;
+  padding-top: 55px;
   box-shadow: 0px 14px 12px -5px var(--shadow-color);
+  margin-top: -40px;
 }
 
 .items__status {
+  display: flex;
+  align-self: flex-end;
   border-top: 1px solid var(--gray);
   color: var(--very-dark-grayish-blue);
-  list-style: none;
-  display: flex;
-  justify-content: center;
+  gap: 1rem;
+justify-content: center;
   width: 100%;
   order: 1;
   padding: 1rem;
 }
 
 .app__bottom__text {
-  color: var(--dark-grayish-blue);
+  color: var(--crossed-color);
   text-align: center;
 }
 
-.items__status button {
-  padding: 0 1rem;
+.items__status p  {
   margin: 0;
-  border: none;
-  color: var(--dark-grayish-blue);
-  font-family: var(--custom-font);
-  background: var(--tasks-background);
 }
 
-items__status span {
-  font-size: 1rem;
-}
 
 button,
 .task__text,
@@ -235,6 +234,13 @@ button,
   .background__image {
     background: var(--url-desktop);
   }
+}
+
+/* task bar  */
+@media (min-width: 755px) {
+  /* .app__wrapper{
+    background: white;
+  } */
 
   .app__bottom {
     color: var(--crossed-color);
@@ -242,7 +248,9 @@ button,
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    padding-top: 0;
+    padding-top: 2.5rem;
   }
 
   .items__status {
@@ -250,8 +258,9 @@ button,
     color: var(--very-dark-grayish-blue);
     list-style: none;
     order: 0;
-    padding: 1rem;
+    padding: 0;
     width: auto;
+    margin: 0;
   }
 
   .items__status * {

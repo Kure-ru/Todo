@@ -45,16 +45,18 @@ Users should be able to:
 
 - Very first React Project
 - I learned how to toggle light/dark mode.
+- I learned about how to set up the [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API) to store the data to localStorage
 
 
 ### Continued development
 
-- Implement a drag and drop functionality  
-- Fix the bugs
-- Desktop media queries
+- Implement a drag and drop functionality  ✅
+- Fix the bugs ✅
+- Desktop media queries ✅
 
 ### Useful resources
 - [How to Create a Dark Mode Component in React](https://dev.to/alexeagleson/how-to-create-a-dark-mode-component-in-react-3ibg)
+- [How to Add Drag and Drop in React with React Beautiful DnD](https://www.youtube.com/watch?v=aYZRRyukuIw&ab_channel=ColbyFayock)
 
 
 ## Author
